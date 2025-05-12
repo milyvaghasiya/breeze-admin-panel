@@ -12,6 +12,8 @@ import { IoMenu, IoMoon } from "react-icons/io5";
 import { LuSearch } from "react-icons/lu";
 import { HiSun } from "react-icons/hi";
 import { useThemeContext } from "../../contexts/ThemeContext";
+import HeaderNotification from "../../components/HeaderNotification";
+import HeaderProfile from "../../components/HeaderProfile";
 
 type HeaderProps = {
   openSidebar: boolean;
@@ -46,8 +48,14 @@ const Header = ({ openSidebar, setOpenSidebar }: HeaderProps) => {
         >
           <IoMenu size={24} />
         </IconButton>
-        <Box sx={{ width: "100%", ml: { xs: "0", md: "16px" } }}>
-          <FormControl sx={{ width: { xs: "100%", md: "224px" } }}>
+        <Box
+          sx={{
+            width: "100%",
+            ml: "16px",
+            display: { xs: "none", sm: "block" },
+          }}
+        >
+          <FormControl sx={{ width: "224px" }}>
             <OutlinedInput
               startAdornment={
                 <InputAdornment position="start" sx={{ mr: "-4px" }}>
@@ -70,10 +78,13 @@ const Header = ({ openSidebar, setOpenSidebar }: HeaderProps) => {
             color: "secondary.main",
             height: "40px",
             width: "40px",
+            ml: "auto",
           }}
         >
-          {isDarkMode ? <HiSun size={24} /> : <IoMoon size={20} />}
+          {isDarkMode ? <HiSun size={24} /> : <IoMoon size={22} />}
         </IconButton>
+        <HeaderNotification />
+        <HeaderProfile />
       </Toolbar>
     </AppBar>
   );

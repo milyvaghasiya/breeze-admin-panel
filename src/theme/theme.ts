@@ -53,7 +53,7 @@ export const darkTheme = createTheme({
     },
     background: {
       default: '#131920',
-      paper: '#1D2630',
+      paper: '#1D262f',
     },
     divider: "#3e4853"
   },

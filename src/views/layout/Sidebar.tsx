@@ -179,7 +179,7 @@ const Sidebar = ({ openSidebar, setOpenSidebar }: SidebarProps) => {
           slotProps={{
             paper: {
               sx: {
-                background: theme.palette.mode === "dark" ? "#1d262f" : "",
+                backgroundImage: "none",
               },
             },
           }}

@@ -24,8 +24,11 @@ export const lightTheme = createTheme({
     },
     secondary: {
       main: '#5B6B79',
-      800: '#1D2630',
+      dark: '#1D2630',
       contrastText: '#fff',
+    },
+    success: {
+      main: '#2ca87f'
     },
     background: {
       default: '#f8f9fa',
@@ -48,12 +51,15 @@ export const darkTheme = createTheme({
     },
     secondary: {
       main: '#8996a4',
-      800: '#F9FAFB',
+      dark: '#d5d5d5',
       contrastText: '#fff',
+    },
+    success: {
+      main: '#2ca87f'
     },
     background: {
       default: '#131920',
-      paper: '#1D262f',
+      paper: '#1D2630',
     },
     divider: "#3e4853"
   },

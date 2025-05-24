@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 import {
+  alpha,
   AppBar,
   Box,
   FormControl,
@@ -7,6 +8,7 @@ import {
   InputAdornment,
   OutlinedInput,
   Toolbar,
+  useTheme,
 } from "@mui/material";
 import { IoMenu, IoMoon } from "react-icons/io5";
 import { LuSearch } from "react-icons/lu";
@@ -21,6 +23,7 @@ type HeaderProps = {
 };
 
 const Header = ({ openSidebar, setOpenSidebar }: HeaderProps) => {
+  const theme = useTheme();
   const { isDarkMode, setIsDarkMode } = useThemeContext();
   return (
     <AppBar
@@ -28,13 +31,13 @@ const Header = ({ openSidebar, setOpenSidebar }: HeaderProps) => {
       sx={{
         position: "fixed",
         right: "0",
-        background: "transparent",
+        background: alpha(theme.palette.background.default, 0.8),
         backdropFilter: "blur(8px)",
         zIndex: 1200,
         width: openSidebar
           ? { lg: "calc(100% - 251px)" }
           : { lg: "calc(100% - 83px)" },
-        transition: "all 0.5s",
+        transition: "width 0.5s",
       }}
     >
       <Toolbar

@@ -10,106 +10,8 @@ import {
 } from "@mui/material";
 import { HiOutlineDocumentArrowDown } from "react-icons/hi2";
 import { LuSearch } from "react-icons/lu";
+import { paymentData } from "../../constant";
 import CommonTable from "../../components/CommonTable";
-
-const data = [
-  {
-    id: 1,
-    customer: "Chery Mail",
-    paymentType: "PayPal",
-    paidDate: "02/05/2025",
-    paidAmount: "$2590.00",
-    status: 1,
-  },
-  {
-    id: 2,
-    customer: "Charlie Brown",
-    paymentType: "Credit Card",
-    paidDate: "02/05/2025",
-    paidAmount: "$3470.00",
-    status: 1,
-  },
-  {
-    id: 3,
-    customer: "Jaxson Herwitz",
-    paymentType: "Debit Card",
-    paidDate: "02/03/2025",
-    paidAmount: "$6579.00",
-    status: 2,
-  },
-  {
-    id: 4,
-    customer: "Gretchen Lipshutz",
-    paymentType: "Debit Card",
-    paidDate: "23/03/2025",
-    paidAmount: "$4539.00",
-    status: 1,
-  },
-  {
-    id: 5,
-    customer: "Ashlynn Gouse",
-    paymentType: "PayPal",
-    paidDate: "02/05/2025",
-    paidAmount: "$2590.00",
-    status: 1,
-  },
-  {
-    id: 6,
-    customer: "Hanna Ekstorm",
-    paymentType: "Credit Card",
-    paidDate: "02/05/2025",
-    paidAmount: "$3470.00",
-    status: 2,
-  },
-  {
-    id: 7,
-    customer: "Ashlynn Gouse",
-    paymentType: "Debit Card",
-    paidDate: "02/03/2025",
-    paidAmount: "$6579.00",
-    status: 1,
-  },
-  {
-    id: 8,
-    customer: "Chery Mail",
-    paymentType: "Debit Card",
-    paidDate: "23/06/2025",
-    paidAmount: "$4539.00",
-    status: 2,
-  },
-  {
-    id: 9,
-    customer: "Brandon Lee",
-    paymentType: "PayPal",
-    paidDate: "02/05/2025",
-    paidAmount: "$2590.00",
-    status: 2,
-  },
-  {
-    id: 10,
-    customer: "Bredly Nine",
-    paymentType: "Credit Card",
-    paidDate: "02/05/2025",
-    paidAmount: "$3470.00",
-    status: 1,
-  },
-  {
-    id: 11,
-    customer: "Hanna Ekstorm",
-    paymentType: "Debit Card",
-    paidDate: "02/03/2025",
-    paidAmount: "$6579.00",
-    status: 1,
-  },
-  {
-    id: 12,
-    customer: "Brandon Lee",
-    paymentType: "Debit Card",
-    paidDate: "23/06/2025",
-    paidAmount: "$4539.00",
-    status: 2,
-  },
-];
 
 const Payment = () => {
   const theme = useTheme();
@@ -218,6 +120,10 @@ const Payment = () => {
               borderRadius: "8px",
               maxWidth: "260px",
               "& .MuiOutlinedInput-input": { py: "8px", pl: "12px" },
+              "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                borderColor: `${theme.palette.primary.main} !important`,
+                borderWidth: "1px!important",
+              },
             }}
           />
           <Tooltip title="CSV Export">
@@ -228,7 +134,7 @@ const Payment = () => {
             />
           </Tooltip>
         </Stack>
-        <CommonTable columns={columns} data={data} />
+        <CommonTable columns={columns} data={paymentData} />
       </Box>
     </Box>
   );

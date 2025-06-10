@@ -71,6 +71,10 @@ const Header = ({ openSidebar, setOpenSidebar }: HeaderProps) => {
                 fontSize: "14px",
                 borderRadius: "8px",
                 "& .MuiOutlinedInput-input": { py: "8px", pl: "12px" },
+                "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                  borderColor: `${theme.palette.primary.main} !important`,
+                  borderWidth: "1px!important",
+                },
               }}
             />
           </FormControl>

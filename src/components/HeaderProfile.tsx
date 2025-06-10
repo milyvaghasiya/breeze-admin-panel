@@ -37,7 +37,7 @@ const HeaderProfile = () => {
   return (
     <Box sx={{ flexShrink: 0, ml: "8px" }}>
       <img
-        src="/assets/images/avatar-1.png"
+        src="/assets/images/users/avatar-6.png"
         alt="profile"
         ref={anchorRef}
         onClick={() => setOpenMenu((prevOpen) => !prevOpen)}
@@ -122,7 +122,7 @@ const HeaderProfile = () => {
                       }}
                     >
                       <img
-                        src="/assets/images/avatar-1.png"
+                        src="/assets/images/users/avatar-6.png"
                         alt="profile"
                         style={{
                           height: "40px",

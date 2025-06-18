@@ -43,7 +43,6 @@ const ChartMenu = () => {
         }}
         sx={{
           ".MuiPopover-paper": {
-            backgroundImage: "none",
             borderRadius: "8px",
           },
           ".MuiList-root": {
@@ -51,13 +50,13 @@ const ChartMenu = () => {
           },
           "& .MuiListItemButton-root": {
             borderRadius: "8px",
-            color: theme.palette.secondary.main,
+            color: theme.palette.secondary.dark,
             fontSize: "14px",
             padding: "10px 16px",
             "&:hover": {
               bgcolor:
                 theme.palette.mode === "dark"
-                  ? theme.palette.background.default
+                  ? theme.palette.background.paper
                   : "rgba(0,0,0,0.04)",
             },
           },

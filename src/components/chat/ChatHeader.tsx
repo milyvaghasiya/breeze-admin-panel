@@ -1,6 +1,8 @@
 import { Dispatch, MouseEvent, SetStateAction, useState } from "react";
 import {
+  alpha,
   Avatar,
+  Badge,
   Grid,
   IconButton,
   Menu,
@@ -17,6 +19,7 @@ import { HiOutlineDocumentArrowDown } from "react-icons/hi2";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { AiOutlineMuted } from "react-icons/ai";
 import { UserProfile } from "../../constant";
+import AvatarStatus from "./AvatarStatus";
 
 type ChatHeaderProps = {
   user: UserProfile;
@@ -40,8 +43,9 @@ const ChatHeader = ({ user, setOpenChatDrawer }: ChatHeaderProps) => {
       sx={{
         paddingX: "16px",
         paddingY: "11px",
-        borderBottom: `1px solid ${theme.palette.divider}`,
+        borderBottom: `1px solid ${alpha(theme.palette.divider, 0.5)}`,
         height: "65px",
+        bgcolor: theme.palette.background.paper,
       }}
     >
       <Grid width={{ sm: "auto", xs: "calc(100% - 50px)" }}>
@@ -59,16 +63,32 @@ const ChatHeader = ({ user, setOpenChatDrawer }: ChatHeaderProps) => {
               >
                 <IoMenu size={22} />
               </IconButton>
-              <Avatar
-                alt="user-avatar"
-                src={`/assets/images/users/${user.avatar}`}
-                sx={{ ml: { lg: "0 !important" } }}
-              />
+
+              <Badge
+                overlap="circular"
+                badgeContent={<AvatarStatus status={user.online_status!} />}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                sx={{
+                  "& .MuiBox-root": { width: "6px", height: "6px" },
+                  padding: 0,
+                  minWidth: "12px",
+                  "& svg": { background: "#fff", borderRadius: "50%" },
+                }}
+              >
+                <Avatar
+                  alt="user-avatar"
+                  src={`/assets/images/users/${user.avatar}`}
+                  sx={{ ml: { lg: "0 !important" } }}
+                />
+              </Badge>
               <Stack width={{ sm: "auto", xs: "calc(100% - 96px)" }}>
                 <Typography
                   sx={{
                     fontSize: "14px",
-                    color: "text.primary",
+                    color: "secondary.dark",
                     fontWeight: "600",
                     whiteSpace: "nowrap",
                     overflow: "hidden",
@@ -79,14 +99,14 @@ const ChatHeader = ({ user, setOpenChatDrawer }: ChatHeaderProps) => {
                 </Typography>
                 <Typography
                   variant="caption"
-                  color={"text.secondary"}
+                  color={"secondary.main"}
                   sx={{
                     whiteSpace: "nowrap",
                     overflow: "hidden",
                     textOverflow: "ellipsis",
                   }}
                 >
-                  Active {user.lastMessage} ago
+                  Active {user.lastMessage}
                 </Typography>
               </Stack>
             </>
@@ -103,37 +123,37 @@ const ChatHeader = ({ user, setOpenChatDrawer }: ChatHeaderProps) => {
           <Tooltip arrow title="Voice Call" placement="bottom">
             <IconButton
               sx={{
-                color: "secondary.main",
+                color: "secondary.dark",
                 height: "38px",
                 width: "38px",
                 display: { sm: "flex", xs: "none" },
               }}
             >
-              <FiPhone size={22} />
+              <FiPhone size={20} />
             </IconButton>
           </Tooltip>
           <Tooltip arrow title="Video Call" placement="bottom">
             <IconButton
               sx={{
-                color: "secondary.main",
+                color: "secondary.dark",
                 height: "38px",
                 width: "38px",
                 display: { sm: "flex", xs: "none" },
               }}
             >
-              <FiVideo size={22} />
+              <FiVideo size={20} />
             </IconButton>
           </Tooltip>
           <Tooltip arrow title="Profile Info" placement="bottom">
             <IconButton
               sx={{
-                color: "secondary.main",
+                color: "secondary.dark",
                 height: "38px",
                 width: "38px",
                 display: { sm: "flex", xs: "none" },
               }}
             >
-              <FiAlertCircle size={21} />
+              <FiAlertCircle size={20} />
             </IconButton>
           </Tooltip>
           <Tooltip arrow title="More" placement="bottom">
@@ -142,7 +162,7 @@ const ChatHeader = ({ user, setOpenChatDrawer }: ChatHeaderProps) => {
                 setAnchorEl(event.currentTarget)
               }
               sx={{
-                color: "secondary.main",
+                color: "secondary.dark",
                 height: "38px",
                 width: "38px",
               }}
@@ -165,7 +185,6 @@ const ChatHeader = ({ user, setOpenChatDrawer }: ChatHeaderProps) => {
             }}
             sx={{
               ".MuiPopover-paper": {
-                backgroundImage: "none",
                 borderRadius: "8px",
               },
               ".MuiList-root": {
@@ -173,7 +192,7 @@ const ChatHeader = ({ user, setOpenChatDrawer }: ChatHeaderProps) => {
               },
               "& .MuiMenuItem-root": {
                 borderRadius: "8px",
-                color: theme.palette.secondary.main,
+                color: theme.palette.secondary.dark,
                 fontSize: "14px",
                 padding: "6px 10px",
                 height: "33px",
@@ -181,7 +200,7 @@ const ChatHeader = ({ user, setOpenChatDrawer }: ChatHeaderProps) => {
                 "&:hover": {
                   bgcolor:
                     theme.palette.mode === "dark"
-                      ? theme.palette.background.default
+                      ? theme.palette.background.paper
                       : "rgba(0,0,0,0.04)",
                 },
               },

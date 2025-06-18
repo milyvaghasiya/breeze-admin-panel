@@ -6,6 +6,7 @@ import {
   useState,
 } from "react";
 import {
+  alpha,
   Avatar,
   Badge,
   Box,
@@ -22,9 +23,9 @@ import {
   useTheme,
 } from "@mui/material";
 import { LuSearch } from "react-icons/lu";
-import { FaCheckCircle, FaClock, FaMinusCircle } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 import { UserProfile, users } from "../../constant";
+import AvatarStatus from "./AvatarStatus";
 
 type ChatDrawerProps = {
   openChatDrawer: boolean;
@@ -52,31 +53,6 @@ const ChatDrawer = ({
     user.name.toLowerCase().includes(search?.toLowerCase() || "")
   );
 
-  const AvatarStatus = ({ status }: any) => {
-    switch (status) {
-      case "available":
-        return (
-          <FaCheckCircle
-            size={14}
-            style={{ color: theme.palette.success.main }}
-          />
-        );
-      case "do_not_disturb":
-        return (
-          <FaMinusCircle
-            size={14}
-            style={{ color: theme.palette.secondary.main }}
-          />
-        );
-      case "offline":
-        return (
-          <FaClock size={14} style={{ color: theme.palette.warning.main }} />
-        );
-      default:
-        return null;
-    }
-  };
-
   return (
     <Box
       sx={{
@@ -87,8 +63,8 @@ const ChatDrawer = ({
         zIndex: "3",
         width: { xs: "100%", sm: "320px" },
         maxWidth: { xs: "288px", sm: "320px" },
-        transition: "0.3s",
-        borderRight: "1px solid rgba(0, 0, 0, 0.12)",
+        transition: "left 0.3s",
+        borderRight: `1px solid ${alpha(theme.palette.divider, 0.5)}`,
         boxShadow: {
           lg: "none",
           xs: "0 4px 0px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.1)",
@@ -231,13 +207,13 @@ const ChatDrawer = ({
                             whiteSpace: "nowrap",
                             fontSize: "14px",
                             fontWeight: "600",
-                            color: "text.primary",
+                            color: "secondary.dark",
                           }}
                         >
                           {user.name}
                         </Typography>
                         <Typography
-                          color="text.secondary"
+                          color="secondary.main"
                           variant="caption"
                           fontSize="12px"
                         >
@@ -258,7 +234,7 @@ const ChatDrawer = ({
                             textOverflow: "ellipsis",
                             whiteSpace: "nowrap",
                             fontSize: "14px",
-                            color: "text.secondary",
+                            color: "secondary.main",
                           }}
                         >
                           {user.status}

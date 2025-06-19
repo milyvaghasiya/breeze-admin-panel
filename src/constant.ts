@@ -337,3 +337,45 @@ export const users = [
     online_status: "offline",
   },
 ];
+
+export const pricingPlan = [
+  {
+    title: "Basic",
+    monthlyCost: "$11",
+    yearlyCost: "$27",
+    service: "03",
+    description: [
+      { title: "10 projects" },
+      { title: "5GB storage" },
+      { title: "Analytics" },
+      { title: "Free mobile app" },
+      { title: "Access to forums" },
+    ],
+  },
+  {
+    title: "Standard",
+    monthlyCost: "$29",
+    yearlyCost: "$44",
+    service: "05",
+    description: [
+      { title: "Unlimited projects" },
+      { title: "Unlimited storage" },
+      { title: "Custom domains" },
+      { title: "Bulk editing" },
+      { title: "12 / 5 support" },
+    ],
+  },
+  {
+    title: "Premium",
+    monthlyCost: "$69",
+    yearlyCost: "$87",
+    service: "08",
+    description: [
+      { title: "Dedicated hardware" },
+      { title: "%99.9 uptime" },
+      { title: "Advanced analytics" },
+      { title: "3rd party integrations" },
+      { title: "24 / 7 support" },
+    ],
+  },
+];
